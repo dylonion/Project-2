@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>MVC Project Proposal</title>
+  <style>
+    body {
+      font-family: sans-serif;
+    }
+    main {
+      margin:0 100px;
+    }
+    h1 {
+      text-align: center;
+    }
+    article {
+      background-color: #dcdcdc;
+      padding: 10px;
+      border-radius: 3px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Parking Data</h1>
+  <main>
+    <article>
+      <h2>Concept:</h2>
+      <p>Owning a car in NYC is a pain in the ass. Every street has street cleaning rules for both sides which make that street a no-parking zone for 2-3 hours,
+        once per week. You get a $60 ticket if you don't move your car. It can be difficult to remember both where you've parked and what time you are supposed to
+        move, especially if you are sharing your car with other people.<br>
+        I'd like to make an app that can access your GPS data, plug it into google's API, and then apply that information to a database of parking rules that the NYC
+        Dept. of transportation maintains (which is available in csv format on their website, along with other
+        <a href="http://www.nyc.gov/html/dot/html/about/datafeeds.shtml#parking">interesting stuff</a>). Users would be able to take note of their location automatically,
+        share it with other owners, and receive messages before their car is due to be moved (whether through email, text, push notifications,etc TBD).
+      </p>
+    </article>
+    <article>
+      <h2>Code planning:</h2>
+      <p>The code structure of the program would be that of the standard MVC app, with a backend API call to google maps. The project poses a couple of new problems
+      for me though - </p>
+      <ul>
+        <li>learn how to take several massive CSV files and programmatically convert them into a DB. They Do have a search feature on their website, </li>
+        <li>learn how to send emails or w/e kind of notifications through express</li>
+        <li>learn how to schedule automatic tasks for the server through crontab or w/e</li>
+        <li>learn how to pull locational data from a client.</li>
+      </ul>
+      <p>Depending on their difficulty, some of this functionality will be left to the end. Is the concept itself too dependant upon technologies that I don't yet
+      know how to use? Without being able to request location data, it's hard to imagine someone actually taking the time to take out their current address whenever they park.
+      It would have to be something more convenient.</p>
+    </article>
+    <article>
+      <h2>Wireframes:</h2>
+      <p>In progress.</p>
+    </article>
+    <article>
+      <h2>Phases of completion:</h2>
+      <ol>
+        <li>Working MVC app on localhost - basic routes, views, models, controllers. A mock DB to pull on.</li>
+        <li>Convert NYCDOT's csv files to a DB, and implement google's API calls with user input data.</li>
+        <li>Auth.</li>
+        <li>Bonus tech - location data</li>
+        <li>Bonus tech - emails</li>
+        <li>Bonus tech - crontab</li>
+      </ol>
+    </article>
+    <article>
+      <h2>Links and resources:</h2>
+      <ul>
+        <li><a href="http://www.nyc.gov/html/dot/html/about/datafeeds.shtml#parking">NYC DOT data</a></li>
+        <li><a href="https://developers.google.com/maps/documentation/geocoding/start">Google maps geocoding API</a></li>
+        <li></li>
+      </ul>
+    </article>
+  </main>
+</body>
+</html>

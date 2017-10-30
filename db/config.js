@@ -5,7 +5,7 @@ let db;
 if (process.env.NODE_ENV === 'development' || !process.env.NODE_ENV) {
   db = pgp({
   // custom database name
-  database: 'todolist_tc',
+  database: 'parkinglist_tc',
   port: 5432,
   host: 'localhost',
   });

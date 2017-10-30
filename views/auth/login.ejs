@@ -1,0 +1,12 @@
+<% include ../partials/boilerplate %>
+
+<div class='container-new'>
+  <form method='POST' action='/auth/login'>
+    <a href="/auth/register" style="text-decoration: underline;color: blue;">Dont have an account?</a>
+    <input name='username' type='text' placeholder='username' required />
+    <input name='password' type='password' placeholder='password' required />
+    <input type='submit' value='Log in!' />
+  </form>
+</div>
+
+<% include ../partials/end %>

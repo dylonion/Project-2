@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS calendarevents (
+  id SERIAL PRIMARY KEY,
+  day INT UNIQUE NOT NULL,
+  description VARCHAR(2000) NOT NULL
+)

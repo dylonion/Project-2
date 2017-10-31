@@ -3,12 +3,20 @@ const db = require('../db/config');
 const User = {};
 
 User.findByUserName = userName => {
+  console.log('Firing findByUserName: ',userName);
   return db.oneOrNone(`
     SELECT * FROM users
     WHERE username = $1
   `, [userName]);
 };
 
+User.findById = id => {
+  console.log('Firing findById', id);
+  return db.oneOrNone(`
+    SELECT * FROM users
+    WHERE id = $1
+  `, [id]);
+}
 User.create = user => {
   return db.one(`
     INSERT INTO users

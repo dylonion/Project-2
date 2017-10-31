@@ -1,18 +1,18 @@
 const express = require('express');
 const parkingRoutes = express.Router();
-const parkingController = require('../controllers/todo-controller');
+const parkingController = require('../controllers/parking-controller');
 const authHelpers = require('../services/auth/auth-helpers.js')
 
-parkingRoutes.get('/', authHelpers.loginRequired, todoController.index);//pizzaHelpers.getLatLong, pizzaHelpers.getRestaurantsList,
+parkingRoutes.get('/', authHelpers.loginRequired, parkingController.index);//pizzaHelpers.getLatLong, pizzaHelpers.getRestaurantsList,
 parkingRoutes.get('/new', authHelpers.loginRequired,(req,res) => {
   console.log(req.user);
   res.render('new',{user:req.user.id});
 })
-parkingRoutes.post('/', authHelpers.loginRequired, todoController.create);
+parkingRoutes.post('/', authHelpers.loginRequired, parkingController.create);
 
-parkingRoutes.get('/:id', todoController.show);
-parkingRoutes.put('/:id', authHelpers.loginRequired, todoController.update);
-parkingRoutes.put('/status/:id',authHelpers.loginRequired, todoController.updateStatus);
-parkingRoutes.delete('/:id', authHelpers.loginRequired, todoController.delete);
+parkingRoutes.get('/:id', parkingController.show);
+parkingRoutes.put('/:id', authHelpers.loginRequired, parkingController.update);
+parkingRoutes.put('/status/:id',authHelpers.loginRequired, parkingController.updateStatus);
+parkingRoutes.delete('/:id', authHelpers.loginRequired, parkingController.delete);
 
 module.exports = parkingRoutes;

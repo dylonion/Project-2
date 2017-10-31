@@ -1,0 +1,171 @@
+body {
+  font-family: sans-serif;
+  color:#4e4e4e;
+}
+.wrapper {
+  display: flex;
+  flex-flow: row wrap;
+}
+.nodisplay {
+  display:none;
+}
+form {
+  display: inline-block;
+}
+/*----- nav styles-----*/
+header {
+  flex-grow: 1;
+
+}
+header, .container, footer {
+  flex: 1 100%;
+}
+
+nav {
+  display: flex;
+  flex-direction: grow;
+  padding: 20px 10px;
+}
+
+.logo {
+  flex-grow: 2;
+  font-size: large;
+  font-weight: 600;
+  color:black;
+}
+
+nav ul {
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-around;
+}
+
+nav li:not(:last-of-type) {
+  border-right: 2px solid black;
+  padding-right: 15px;
+}
+
+a {
+  text-decoration: none;
+  color:inherit;
+}
+/*----- main items ------*/
+
+.container {
+  justify-content: center;
+  display: flex;
+  background-color: #c8e1ff;
+  align-items: center;
+  flex-direction: column;
+  padding: 5vw;
+}
+
+.container-inner {
+  margin: 25%;
+  text-align: center;
+}
+.container h1 {
+  font-size: x-large;
+  font-weight: 300;
+  letter-spacing: .5px;
+  cursor: default;
+}
+#main-button, #add {
+  padding:10px;
+  background-color: #b9e6b9;
+  border-radius: 5px;
+  margin: 20px;
+  cursor: pointer;
+  box-shadow: 3px 2px 3px 0px grey;
+  letter-spacing: 2.2px;
+}
+/*.container button:hover {
+  background: linear-gradient(#b9e6b9, white,#b9e6b9);
+}*/
+.container-view {
+  margin: 10px 0;
+  background-color: white;
+  width:300px;
+  border-radius: 3px;
+}
+/*.container-view button {
+  margin:3px 2px;
+  padding:3px;
+  box-shadow: none;
+  border-radius: 0;
+}*/
+/*.container-view button:hover {
+  box-shadow: 2px 2px 2px grey;
+}*/
+.container-view .links {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  color:#4e4e4e;
+  border-bottom-radius: 3px;
+  background-color: #9fc1ff;
+}
+i {
+  cursor: pointer;
+}
+.container-view .links p {
+  align-self: center;
+}
+.todo {
+  padding:10px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.description {
+  padding: 10px;
+  text-align: center;
+  margin-top: 10px;
+}
+/*----- footer items ------*/
+footer {
+  flex-grow: 1;
+  text-align: center;
+  padding:10px;
+
+}
+
+/*----- Create new------*/
+.container-new {
+  padding:10px;
+}
+.container-new form {
+  display: inline-block;
+}
+.container-new div {
+  display:inline-block;
+}
+.container-new div:last-of-type {
+  margin-top: 20px;
+  display: block;
+}
+.container-new input, textarea {
+  background-color: white;
+  border: 1px solid #b5b5b5;
+  padding: 5px;
+  margin-top: 5px;
+  display: block;
+}
+.container-new input[type="submit"]{
+  float: right;
+}
+textarea {
+  resize: none;
+  width: 97%;
+  height: 100px;
+}
+
+.status {
+  margin:0;
+}
+.not-done {
+  color:red;
+}
+.done {
+  color:green;
+}

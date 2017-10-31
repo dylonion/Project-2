@@ -8,7 +8,7 @@ authRouter.get('/login', authHelpers.loginRedirect, (req, res) => {
   res.render('auth/login');
 });
 authRouter.post('/login', passport.authenticate('local', {
-  successRedirect: '../todo',
+  successRedirect: '../user',
   failureRedirect: '/auth/login',
   failureFlash: true,
 }));

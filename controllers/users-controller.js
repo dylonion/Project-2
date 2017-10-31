@@ -4,12 +4,16 @@ const User = require('../models/User');
 const usersController = {};
 
 usersController.index = (req, res) => {
-  res.json({
-    message: 'Put a user profile page on this route',
-    data: {
-      user: req.user,
-    },
-  });
+  console.log('userid: ',req.user.id);
+  User.findById(parseInt(req.user.id))
+  .then(user => {
+    res.render('user',{
+      userInfo: user
+    })
+  }).catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  })
 };
 
 usersController.create = (req, res) => {

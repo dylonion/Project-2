@@ -3,7 +3,7 @@ const Parking = require('../models/Parking');
 const ParkingController = {};
 
 ParkingController.index = (req, res) => {
-  Parking.findAll(req.user.id)
+  Parking.showCars(req.user.id)
     .then(Parking => {
       res.render('view',{
           Parking:Parking
@@ -13,6 +13,29 @@ ParkingController.index = (req, res) => {
       });
   })
 };
+
+ParkingController.createCar = (req, res) => {
+  Parking.createCar({
+    group_name: req.body.group_name,
+    user_id: parseInt(req.user.id),
+    description: req.body.description
+  })
+  .then(data => {
+    Parking.createReference({
+      car_id: data.id,
+      user_id: data.user_id
+    }).then(Parking => {
+      res.redirect('/user');
+    }).catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
+}
 
 ParkingController.show = (req, res) => {
   if(req.params.id==='new'){

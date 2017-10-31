@@ -52,11 +52,11 @@ a {
 /*----- main items ------*/
 
 .container {
-  justify-content: center;
+  justify-content: space-around;
   display: flex;
   background-color: #c8e1ff;
   align-items: center;
-  flex-direction: column;
+  flex-direction: row;
   padding: 5vw;
 }
 
@@ -168,4 +168,17 @@ textarea {
 }
 .done {
   color:green;
+}
+
+.pane {
+  background-color: white;
+  border-radius: 3px;
+  padding: 10px;
+}
+
+.view-next {
+  margin-left: 10px;
+  padding:5px;
+  background-color: #dadada;
+  border: .5px solid black;
 }

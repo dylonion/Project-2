@@ -2,10 +2,10 @@ const db = require('../db/config');
 
 const Park = {};
 
-Park.findAll = (id) => {
+Park.showCars = (id) => {
   return db.query(`
     SELECT *
-    FROM Park
+    FROM cars
     WHERE user_id = $1
   `, [id]);
 };
@@ -18,14 +18,25 @@ Park.findById = (id) => {
   `, [id]);
 };
 
-Park.create = (Park) => {
+Park.createCar = (Park) => {
+  console.log('firing createCar',Park);
   return db.one(`
-    INSERT INTO Park
-    (title, category, description, user_id, status)
-    VALUES ($1, $2, $3, $4, 'incomplete')
+    INSERT INTO cars
+    (group_name, user_id, description)
+    VALUES ($1, $2, $3)
     RETURNING *
-  `, [Park.title, Park.category, Park.description, Park.user_id]);
-};
+  `,[Park.group_name, Park.user_id, Park.description])
+}
+
+Park.createReference = (Park) => {
+  console.log('firing createReference',Park);
+  return db.one(`
+    INSERT INTO cars_users
+    (car_id, user_id)
+    VALUES($1, $2)
+    RETURNING *
+    `,[Park.id, Park.user_id]);
+}
 
 Park.update = (Park, id) => {
   return db.one(`

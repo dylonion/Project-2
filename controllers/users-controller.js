@@ -7,14 +7,25 @@ usersController.index = (req, res) => {
   console.log('userid: ',req.user.id);
   User.findById(parseInt(req.user.id))
   .then(user => {
+    let carInfo = ''
+    if(typeof(res.locals.cars)!=='undefined'){
+      carInfo = res.locals.cars;
+      console.log('setting carInfo. ', carInfo);
+    }
     res.render('user',{
-      userInfo: user
+      userInfo: user,
+      cars: carInfo
     })
   }).catch(err => {
     console.log(err);
     res.status(500).json(err);
   })
 };
+
+usersController.returnLocation = (req, res) => {
+  console.log('firing returnLocation', res.locals.coords);
+  res.json(res.locals.coords);
+}
 
 usersController.create = (req, res) => {
   const salt = bcrypt.genSaltSync();
@@ -28,7 +39,7 @@ usersController.create = (req, res) => {
   }).then(user => {
     req.login(user, (err) => {
       if (err) return next(err);
-      res.redirect('/parking');
+      res.redirect('/user');
     });
   }).catch(err => {
     console.log(err);

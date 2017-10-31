@@ -8,7 +8,7 @@ parkingRoutes.get('/new', authHelpers.loginRequired,(req,res) => {
   console.log(req.user);
   res.render('new',{user:req.user.id});
 })
-parkingRoutes.post('/', authHelpers.loginRequired, parkingController.create);
+parkingRoutes.post('/', authHelpers.loginRequired, parkingController.createCar);
 
 parkingRoutes.get('/:id', parkingController.show);
 parkingRoutes.put('/:id', authHelpers.loginRequired, parkingController.update);

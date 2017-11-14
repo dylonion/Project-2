@@ -18,6 +18,37 @@ Park.findById = (id) => {
   `, [id]);
 };
 
+Park.findInLocations = (streets) => {
+  console.log(`
+    SELECT * FROM locations
+    WHERE main_st LIKE '%`+streets.street1+`%'
+    AND from_st LIKE '%`+streets.street2+`%'
+    AND to_st LIKE '%`+streets.street3+`%'
+    OR
+    main_st LIKE '%`+streets.street1+`%'
+    AND from_st LIKE '%`+streets.street3+`%'
+    AND to_st LIKE '%`+streets.street2+`%'
+  `);
+  return db.query(`
+    SELECT * FROM locations
+    WHERE main_st LIKE '%`+streets.street1+`%'
+    AND from_st LIKE '%`+streets.street2+`%'
+    AND to_st LIKE '%`+streets.street3+`%'
+    OR
+    main_st LIKE '%`+streets.street1+`%'
+    AND from_st LIKE '%`+streets.street3+`%'
+    AND to_st LIKE '%`+streets.street2+`%'
+  `)
+}
+
+Park.findInSigns = (sign) => {
+  return db.query(`
+    SELECT * FROM signs
+    WHERE srp_order LIKE '%`+sign.order_no+`%'
+    AND sr_mutcd_code !~ '(BL|CL|PS-9A)'
+  `)
+}
+
 Park.createCar = (Park) => {
   console.log('firing createCar',Park);
   return db.one(`

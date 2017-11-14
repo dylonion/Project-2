@@ -7,7 +7,7 @@ body {
   flex-flow: row wrap;
 }
 .nodisplay {
-  display:none;
+  display:none !important;
 }
 form {
   display: inline-block;
@@ -52,10 +52,10 @@ a {
 /*----- main items ------*/
 
 .container {
-  justify-content: space-around;
+  justify-content: space-between;
   display: flex;
   background-color: #c8e1ff;
-  align-items: center;
+  align-items: baseline;
   flex-direction: row;
   padding: 5vw;
 }
@@ -174,11 +174,33 @@ textarea {
   background-color: white;
   border-radius: 3px;
   padding: 10px;
+  max-width: 300px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-flow: column;
 }
 
-.view-next {
-  margin-left: 10px;
+.pane button {
   padding:5px;
+  background-color: #6bff7d;
+  border: .5px solid #828282;
+  border-radius: 2px;
+  color: #4c4c4c;
+  cursor: pointer;
+}
+
+.car-name {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  justify-content: space-between;
   background-color: #dadada;
-  border: .5px solid black;
+  padding: 10px;
+}
+
+#output p{
+  margin: 10px 5px;
+  background-color: #dadada;
+  padding: 5px;
+  font-weight: 100;
 }

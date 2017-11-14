@@ -18,9 +18,9 @@
   </div>
   <% for(let i=0;i<cars.length;i++){ %>
       <div class="pane car-pane <%= (i===0 ? 'selected' : 'nodisplay')%>">
-        <div class="car-name"><%= cars[i].group_name%><button class="view-next">view next</button></div>
-         <button id="getLocation">Get Current Location</button>
-          <div id="output"></div>
+        <div class="car-name"><div><%= cars[i].group_name%></div><button class="view-next">view next</button></div>
+         <button class="getLocation">Get Current Location</button>
+          <div class="output"></div>
           <button id="parkHere">Park Here</button>
           <div id="cars-group">Group name</div>
       </div>
